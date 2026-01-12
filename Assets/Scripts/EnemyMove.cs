@@ -18,6 +18,8 @@ public class EnemyMove : MonoBehaviour
             wallTarget = GameObject.Find("Wall").transform;
             Debug.Log("EnemyMove: Tự tìm thấy Wall target");
         }
+         WallHealth wallScript = wallTarget.GetComponent<WallHealth>();
+
     }
 
     void Update()
@@ -38,7 +40,6 @@ public class EnemyMove : MonoBehaviour
         // Đã tới gần → tấn công
         else if (Time.time >= lastAttackTime + attackCooldown)
         {
-            WallHealth wallScript = wallTarget.GetComponent<WallHealth>();
             if (wallScript != null)
             {
                 wallScript.TakeDamage(damage);
