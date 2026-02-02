@@ -9,6 +9,7 @@ public class EnemyMove : MonoBehaviour
     public float attackCooldown = 1f; // Thời gian giữa các đòn đánh
 
     private float lastAttackTime;
+    private WallHealth wallScript;
 
     void Start()
     {
@@ -18,7 +19,14 @@ public class EnemyMove : MonoBehaviour
             wallTarget = GameObject.Find("Wall").transform;
             Debug.Log("EnemyMove: Tự tìm thấy Wall target");
         }
-         WallHealth wallScript = wallTarget.GetComponent<WallHealth>();
+        if (wallTarget != null)
+        {
+            wallScript = wallTarget.GetComponent<WallHealth>();
+        }
+        else
+        {
+            Debug.LogError("EnemyMove: wallTarget is null, cannot get WallHealth.");
+        }
 
     }
 
