@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class EnemySpawner : MonoBehaviour
+public class spam : MonoBehaviour
 {
     public GameManager gamemanager;
 
@@ -67,6 +67,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
+        if (gamemanager == null || !gamemanager.IsGameEnd()) return;
         if (!string.IsNullOrEmpty(Input.inputString))
         {
             foreach (char c in Input.inputString)
@@ -87,7 +88,7 @@ public class EnemySpawner : MonoBehaviour
 
             if (enemy != null)
             {
-                KeyBoardCheck label = enemy.GetComponent<KeyBoardCheck>();
+                CheckKey label = enemy.GetComponent<CheckKey>();
 
                 if (label != null)
                 {

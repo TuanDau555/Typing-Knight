@@ -1,6 +1,7 @@
-﻿using UnityEngine;
-using TMPro;
-public class KeyBoardCheck : MonoBehaviour
+﻿using TMPro;
+using UnityEngine;
+
+public class CheckKey : MonoBehaviour
 {
     [SerializeField] private TextMeshPro textMesh;
     private string allowedChars = "abcdefghijklmnopqrstuvwxyz";
@@ -25,10 +26,6 @@ public class KeyBoardCheck : MonoBehaviour
         if (transform.localScale.x < 0)
         {
             textMesh.transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else
-        {
-            textMesh.transform.localScale = new Vector3(1, 1, 1);
         }
     }
 }
