@@ -580,7 +580,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1030428422}
   - {fileID: 2036645991}
-  maxEnemies: 15
+  maxEnemies: 0
   spawnInterval: 2
 --- !u!1 &437167073
 GameObject:
@@ -1429,7 +1429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Wall
   maxHp: 100
-  defense: 0
+  defense: 50
   currentHp: 0
 --- !u!50 &1295119460
 Rigidbody2D:

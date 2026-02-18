@@ -195,10 +195,10 @@ GameObject:
   - component: {fileID: 3531619620942461690}
   - component: {fileID: 8943096225089574801}
   - component: {fileID: 9193546315520751688}
-  - component: {fileID: 297344151036562084}
   - component: {fileID: 6703478328718888085}
   - component: {fileID: 8750956635154630417}
   - component: {fileID: 1300322934846140193}
+  - component: {fileID: 7277650885393483617}
   m_Layer: 0
   m_Name: slime
   m_TagString: Untagged
@@ -316,21 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Move
   moveSpeed: 2
-  stopDistance: 1.5
---- !u!114 &297344151036562084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7238223890239026602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63f01c41bb72c7445a2f1f26eff6972f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CheckKey
-  textMesh: {fileID: 7538034826751002519}
-  myChar: 0
+  stopDistance: 2
 --- !u!114 &6703478328718888085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,3 +405,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.25, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7277650885393483617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238223890239026602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae2a49f9f9b2314688de6537dc82c0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CheckInputPlus
+  textMesh: {fileID: 7538034826751002519}
+  currentWord: 1

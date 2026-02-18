@@ -5,12 +5,14 @@ public class Move : MonoBehaviour
     [Header("setting move")]
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float stopDistance = 1.5f;
+    private Animator Animator;
 
     private Attack attacking;
     private Wall targetWall;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Animator = GetComponent <Animator>();
         targetWall = FindObjectOfType<Wall>();
         attacking = GetComponent<Attack>();   // ← thêm dòng này
 
@@ -24,6 +26,22 @@ public class Move : MonoBehaviour
         }
 
     }
+
+    void UpdateAnimation() 
+    {
+        if (targetWall == null || targetWall.currentHp <= 0) return;
+        float distanceX = Mathf.Abs(transform.position.x - targetWall.transform.position.x);
+        if (distanceX > stopDistance)
+        {
+            Animator.SetBool("isAttacking", false);
+        }
+        else 
+        {
+            Animator.SetBool("isAttacking", true);
+        }
+
+    }
+    
     void Update()
     {
         if (targetWall == null || targetWall.currentHp <= 0) return;
@@ -43,6 +61,12 @@ public class Move : MonoBehaviour
                 attacking.StartAttacking();
             }
         }
+        UpdateAnimation();
+    }
+
+    public void SetMoveSpeed(float newSpeed)
+    {
+        moveSpeed = newSpeed;
     }
 
     private void Moving()

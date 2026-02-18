@@ -19,6 +19,15 @@ public class Attack : MonoBehaviour
             Debug.LogError("coun't find wall in scene");
         }
     }
+    public void SetAttackDamage(int newDamage)
+    {
+        attackDamage = newDamage;
+    }
+
+    public void SetAttackInterval(float newInterval)
+    {
+        attackInterval = newInterval;
+    }
     //hàm dùng vòng lặp
     public void StartAttacking()
     {
