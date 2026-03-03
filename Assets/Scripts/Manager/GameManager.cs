@@ -1,10 +1,8 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-using UnityEngine.Events;
 [System.Serializable]
-
 public class GameTopic
 {
     public string topicName;
@@ -35,11 +33,6 @@ public class GameManagerEndless : MonoBehaviour
     [SerializeField] public List<GameTopic> allTopics;
     [SerializeField] public List<int> selectedTopicIndices = new List<int>();
     [SerializeField] private bool fallbackToAllIfNoneSelected = true;
-
-    [Header("Narrative")]
-    [SerializeField] private LevelStoryData currentLevelStory;
-    public UnityEvent onLevelStart;   // optional
-    public UnityEvent onLevelComplete;
     public float CurrentTime { get; private set; }
     public float elapsedTime { get; private set; } = 0f;
     public bool isGameOver = false;
@@ -64,47 +57,13 @@ public class GameManagerEndless : MonoBehaviour
         isGameOver = false;
         isGameWin = false;
         isGameEnd = false;
-
-        // NGAY TỪ ĐẦU: Pause toàn bộ game để intro chạy
-        Time.timeScale = 0f;
-
+        Time.timeScale = 1;
         CurrentTime = targetTime;
         elapsedTime = 0f;
         UpdateUI();
         UpdateTimerUI();
         gameOverUI.SetActive(false);
         gameWinUI.SetActive(false);
-
-        // Chạy intro (nếu có)
-        if (currentLevelStory != null && currentLevelStory.introLines.Length > 0)
-        {
-            DialogueManager.Instance.StartDialogue(currentLevelStory.introLines, OnIntroFinished);
-        }
-        else
-        {
-            // Không có intro → bắt đầu luôn (hiếm xảy ra)
-            OnIntroFinished();
-        }
-    }
-    private void OnIntroFinished()
-    {
-        // Bây giờ mới chạy game thật
-        Time.timeScale = 1f;
-
-        // Reset lại elapsedTime để timer bắt đầu từ đầu (nếu cần)
-        elapsedTime = 0f;
-        CurrentTime = targetTime;
-        UpdateTimerUI();
-
-        // Bật spawn enemy, player input, v.v.
-        StartTimerAndGameplay();
-    }
-    private void StartTimerAndGameplay()
-    {
-        // Bật player controller, spawn enemy, timer chạy...
-        // Ví dụ: EnablePlayerInput(); SpawnManager.StartSpawning();
-        UpdateTimerUI();
-        onLevelStart?.Invoke();
     }
     void Update()
     {
@@ -234,19 +193,8 @@ public class GameManagerEndless : MonoBehaviour
         isGameWin = true;
         isGameEnd = true;
         Time.timeScale = 0;
-        // 1. Chơi outro dialogue
-        if (currentLevelStory != null && currentLevelStory.outroLines.Length > 0)
-        {
-            DialogueManager.Instance.StartDialogue(currentLevelStory.outroLines, () =>
-            {
-                // Outro xong → chuyển màn tiếp theo hoặc win game
-                gameWinUI.SetActive(true); // hoặc LoadNextLevel();
-            });
-        }
-        else
-        {
-            gameWinUI.SetActive(true);
-        }
+        gameOverUI.SetActive(false);
+        gameWinUI.SetActive(true);
     }
     public void GameOver()
     {
@@ -272,4 +220,4 @@ public class GameManagerEndless : MonoBehaviour
     {
         return isGameEnd;
     }
-}
+}*/

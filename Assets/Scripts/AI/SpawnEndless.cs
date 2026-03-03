@@ -64,7 +64,7 @@ public class SpawnEndless : MonoBehaviour
         {
             foreach (char c in Input.inputString)
             {
-                if (c == '\b' || c == '\n' || c == '\r') continue;
+                if (char.IsControl(c) || c == ' ' || c == '\b' || c == '\n' || c == '\r' || c == '\t') continue;
                 CheckInputAndKillEnemy(c);
             }
         }
@@ -206,8 +206,8 @@ public class SpawnEndless : MonoBehaviour
         float distance = Vector3.Distance(enemy.transform.position, targetObjectA.position);
         int pointsToAdd = 0;
 
-        if (distance <= 10f) pointsToAdd = 1;
-        else if (distance <= 20f) pointsToAdd = 2;
+        if (distance <= 8f) pointsToAdd = 1;
+        else if (distance <= 18f) pointsToAdd = 2;
         else pointsToAdd = 3;
 
         if (gameManagerEndless != null) gameManagerEndless.AddScore(pointsToAdd);

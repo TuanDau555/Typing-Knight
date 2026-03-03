@@ -194,12 +194,12 @@ GameObject:
   - component: {fileID: 6001724501903893387}
   - component: {fileID: 3531619620942461690}
   - component: {fileID: 8943096225089574801}
-  - component: {fileID: 6703478328718888085}
   - component: {fileID: 8750956635154630417}
   - component: {fileID: 1300322934846140193}
   - component: {fileID: 7277650885393483617}
   - component: {fileID: 7041863318061134066}
   - component: {fileID: 4484999930625629556}
+  - component: {fileID: 7646589799231998852}
   m_Layer: 6
   m_Name: slime
   m_TagString: Untagged
@@ -304,21 +304,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6703478328718888085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7238223890239026602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20297537fda7c2e419b6c078ccea0e8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Attack
-  attackDamage: 0
-  attackInterval: 1
-  isattack: 0
 --- !u!50 &8750956635154630417
 Rigidbody2D:
   serializedVersion: 5
@@ -473,3 +458,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5124983, y: 0.74340004}
   m_EdgeRadius: 0
+--- !u!114 &7646589799231998852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238223890239026602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20297537fda7c2e419b6c078ccea0e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Attack
+  attackDamage: 5
+  attackInterval: 1
+  isattack: 0
