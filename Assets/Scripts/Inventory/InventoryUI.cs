@@ -27,7 +27,7 @@ public class InventoryUI : MonoBehaviour
 
     private void RefreshUI()
     {
-        var items = InventoryManager.Instance.GetInventory();
+        var items = InventoryManager.Instance.GetItems();
 
         for(int i = 0; i < slots.Length; i++)
         {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : Singleton<InventoryManager>
+public class InventoryManager : Singleton<InventoryManager>, IItemContainer
 {
     #region Parematers
 
@@ -20,17 +20,19 @@ public class InventoryManager : Singleton<InventoryManager>
         Debug.Log("InventoryManager Awake");
     }
 
-    #region Add Item
+    #region IItemContainer Item
 
-    public void AddItem(ItemSO itemSO, int quantity)
+    public bool AddItem(ItemSO itemSO, int quantity)
     {
         if(inventory.Count >= maxSlots)
         {
             Debug.Log("Inventory Full");
-            return;
+            return false;
         }
+
+        int remaining = quantity;
         
-        while(quantity > 0)
+        while(remaining > 0)
         {
             // Only add items if they are in the database or not exceed the stack limit.
             ItemStack stack = inventory.Find(i => 
@@ -40,33 +42,63 @@ public class InventoryManager : Singleton<InventoryManager>
             if(stack != null)
             {
                 int space = itemSO.maxStack - stack.quantity;
-                int addAmount = Mathf.Min(space, quantity);
+                int addAmount = Mathf.Min(space, remaining);
                 
                 stack.quantity += addAmount;
-                quantity -= addAmount;
+                remaining -= addAmount;
             }
             else
             {
-                int addAmount = Mathf.Min(itemSO.maxStack, quantity);
+                if(inventory.Count >= maxSlots)
+                {
+                    Debug.Log("Inventory Full");
+                    OnInventoryChanged?.Invoke();
+                    return false;
+                }
+                
+                int addAmount = Mathf.Min(itemSO.maxStack, remaining);
                 inventory.Add(new ItemStack(itemSO, addAmount));
 
-                quantity -= addAmount;
+                remaining -= addAmount;
             }
 
-            Debug.Log($"Added {itemSO.itemName} x {quantity}");
-            OnInventoryChanged?.Invoke();
         }
+        Debug.Log($"Added {itemSO.itemName} x {quantity}");
+        OnInventoryChanged?.Invoke();
+        return true;
         
     }
-    
-    #endregion
 
-    #region Get Item
+    public bool RemoveItem(ItemSO itemSO, int quantity)
+    {
+        ItemStack stack = inventory.Find(i => i.itemSO == itemSO);
+        if(stack == null || stack.quantity < quantity)
+        {
+            Debug.Log("Not enough items to remove");
+            return false;
+        }
 
-    public List<ItemStack> GetInventory()
+        stack.quantity -= quantity;
+        if(stack.quantity <= 0)
+        {
+            inventory.Remove(stack);
+        }
+
+        Debug.Log($"Removed {itemSO.itemName} x {quantity}");
+        OnInventoryChanged?.Invoke();
+        return true;
+    }
+
+    public bool HasItem(ItemSO itemSO, int quantity)
+    {
+        ItemStack stack = inventory.Find(i => i.itemSO == itemSO);
+        return stack != null && stack.quantity >= quantity;
+    }
+
+    public List<ItemStack> GetItems()
     {
         return inventory;
     }
-    
+
     #endregion
 }
