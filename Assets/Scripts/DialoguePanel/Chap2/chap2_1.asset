@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f100c39ea54d1945a1f135cd657088f, type: 3}
+  m_Name: chap2_1
+  m_EditorClassIdentifier: Assembly-CSharp::LevelStoryData
+  levelName: 
+  introLines:
+  - speaker: Arin
+    text: "Cu\u1ED1i c\xF9ng c\u0169ng t\u1EDBi n\u01A1i r\u1ED3i, th\u1EADt may
+      tr\xEAn \u0111\u01B0\u1EDDng \u0111i c\u0169ng \xEDt g\u1EB7p b\u1ECDn ch\xFAng
+      , hay c\xF3  g\xEC \u0111\xE3 thu h\xFAt ch\xFAng \u0111i nh\u1EC9 ?"
+  - speaker: Shadow
+    text: "g\xE2u g\xE2u !"
+  - speaker: Arin
+    text: "hahaha, Nh\u1ED9t  qu\xE1 Shadow tr\xE8o xu\u1ED1ng n\xE0o"
+  - speaker: Shadow
+    text: "g\xE2u g\xE2u !"
+  - speaker: Arin
+    text: "Ch\u1EDD  \u0111\xE3 Shadow , c\xF3 g\xEC \u0111ang ti\u1EBFn \u0111\u1EBFn
+      k\xECa\u2026 , nh\xECn nh\u01B0 con ng\u01B0\u1EDDi sao \u2026? *nh\xECn r\xF5
+      h\u01A1n khi ch\xFAng l\u1EA1i g\u1EA7n* c\u1EA9n th\u1EADn Shadow!!! Ch\xFAng
+      kh\xF4ng ph\u1EA3i con ng\u01B0\u1EDDi \u0111\xE2u!!"
+  outroLines:
+  - speaker: Arin
+    text: "Chuy\u1EC7n qu\xE1i g\xEC \u0111ang x\u1EA3y ra \u1EDF n\u01A1i n\xE0y
+      v\u1EADy??? ch\xE3 l\u1EBD slime \u0111\xE3 ti\u1EBFn h\xF3a v\xE0 \u0111\xE3
+      c\xF3 th\u1EC3 chi\u1EBFm th\xE2n x\xE1c con ng\u01B0\u1EDDi r\u1ED3i sao ???
+      C\xF3 v\u1EBB ch\xFAng ta ph\u1EA3i n\xEAn c\u1EA9n th\u1EADn h\u01A1n r\u1ED3i
+      Shadow\u2026"

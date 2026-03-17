@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f100c39ea54d1945a1f135cd657088f, type: 3}
+  m_Name: chap2_5
+  m_EditorClassIdentifier: Assembly-CSharp::LevelStoryData
+  levelName: 
+  introLines:
+  - speaker: Arin
+    text: "Ch\u1EBFt th\u1EADt t\xF2a nh\xE0 b\xEAn kia \u0111\u1ED5 s\u1EE5p r ,
+      b\u1EE5i d\xE0y  \u0111\u1EB7c th\u1EADt \u0111\u1EA5y\u2026 d\xE0y \u0111\u1EB7c
+      nh\u01B0 l\u0169 \u0111\xF3 v\u1EADy\u2026"
+  outroLines:
+  - speaker: Lena
+    text: "Arin Kh\xF4ng sao ch\u1EE9 ch\xFAng t\xF4i tr\u1EDF v\u1EC1 r\u1ED3i n\xE0y
+      , ti\u1EBFng \u0111\u1ED9ng l\u1EDBn ban n\xE3y l\xE0 g\xEC th\u1EBF"
+  - speaker: Arin
+    text: "T\xF4i Kh\xF4ng sao , ban n\xE3y t\xF2a nh\xE0 \u0111\u1EB1ng kia s\u1EE5p
+      \u0111\u1ED5 n\xEAn thu  h\xFAt b\u1ECDn qu\xE1i kinh t\u1EDFm \u0111\xF3 l\u1EA1i
+      th\xF4i, C\xF4 sao r\u1ED3i c\xF3 t\xECm \u0111\u01B0\u1EE3c manh m\u1ED1i
+      g\xEC kh\xF4ng ?"
+  - speaker: Lena
+    text: "Kh\xF4ng sao l\xE0 t\u1ED1t r\u1ED3i , t\xF4i t\xECm \u0111\u01B0\u1EE3c
+      quy\u1EC3n ghi ch\xFA c\u1EE7a 1 nh\xE2n vi\xEAn truy\u1EC1n th\xF4ng. Trong
+      \u0111\xF3 b\u1EA3o r\u1EB1ng v\xE0i th\xE1ng tr\u01B0\u1EDBc anh ta nh\u1EADn
+      \u0111\u01B0\u1EE3c  tin r\u1EB1ng c\xF3 1 thi\xEAn th\u1EA1ch kh\xE1 l\u1EDBn
+      r\u01A1i xu\u1ED1ng. V\xE0 sau \u0111\xF3 v\xE0i ng\xE0y th\xEC l\u0169 qu\xE1i
+      v\u1EADt xu\u1EA5 hi\u1EC7n ng\xE0y 1 nhi\u1EC1u  v\xE0 d\xE0y \u0111\u1EB7c
+      h\u01A1n, ch\u1EAFc nguy\xEAn nh\xE2n l\xE0 t\u1EEB v\u1EE5 thi\xEAn th\u1EA1ch
+      r\u01A1i \u1EA5y. V\u1ECB tr\xED m\xE0 trong quy\u1EC3n ghi ch\xFA ghi l\u1EA1i
+      l\xE0  V\xF9ng hoang m\u1EA1c c\xE1ch \u0111\xE2y c\u0169ng kh\xE1 xa n\u01A1i
+      \u0111\xF3 g\u1EA7n khu qu\xE2n s\u1EF1 c\u0169 \u0111\xE3 b\u1ECB b\u1ECF
+      hoang l\xE2u r\u1ED3i"
+  - speaker: Arin
+    text: "\u0111\u01B0\u1EE3c r\u1ED3i t\xF4i hi\u1EC3u r\u1ED3i , c\xF3 v\u1EBB
+      nh\u01B0 c\xFAng ta c\u1EA7n ph\u1EA3i \u0111i \u0111\u1EBFn n\u01A1i \u0111\xF3
+      1 chuy\u1EBFn th\xF4i m\u1ECDi ng\u01B0\u1EDDi \u0111i c\xF9ng t\xF4i ch\u1EE9?"
+  - speaker: Lena
+    text: "\u0111\u01B0\u1EE3c ch\u1EE9!!"
+  - speaker: Shadow
+    text: "g\xE2u g\xE2u !!!"

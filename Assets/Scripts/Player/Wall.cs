@@ -20,7 +20,11 @@ public class Wall : MonoBehaviour
         if (currentHp <= 0)
         {
             currentHp =0;
-            FindObjectOfType<GameManagerEndless>().GameOver();
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.TriggerGameOver();
+            }
+            gameObject.SetActive(false);
             // FindObjectOfType<GameManager>().GameOver();
         }
     }

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f100c39ea54d1945a1f135cd657088f, type: 3}
+  m_Name: chap3_1
+  m_EditorClassIdentifier: Assembly-CSharp::LevelStoryData
+  levelName: 
+  introLines:
+  - speaker: Shadow
+    text: "g\xE2u g\xE2u g\xE2u g\xE2u!!"
+  - speaker: Arin
+    text: "Shadow \xE0 \u0111\u1EEBng gi\u1EE1n n\u1EEFa , Lena \xE0 \u0111\xE2y
+      c\xF3  ph\u1EA3i l\xE0 hoang m\u1EA1c m\xE0 c\xF4 n\xF3i \u0111\u1EBFn ch\u1EE9 
+      ?"
+  - speaker: Lena
+    text: "\u0110\xFAng r\u1ED3i l\xE0 n\u01A1i n\xE0y  , th\u1EADt ra \u0111\xE2y
+      t\u1EEBng l\xE0 khu r\u1EEBng xanh m\u01B0\u1EDBp , nh\u01B0ng v\xEC chi\u1EBFn
+      tranh l\xE0 n\xF3 \u0111\xE3 hoang t\xE0n nh\u01B0 n\xE0y \u0111\xE2y\u2026
+      C\u1EA9n th\u1EADn b\u1ECDn ch\xFAg t\u1EDBi n\u1EEFa k\xECa!!!"
+  outroLines:
+  - speaker: Arin
+    text: "*Ch\u1EADc* C\xF3 v\u1EBB nh\u01B0 ch\xFAng ta c\u1EA7n ph\u1EA3i t\u0103ng
+      t\u1ED1c di chuy\u1EC3n \u0111\u1EBFn c\u0103n c\u1EE9 qu\xE2n s\u1EF1 c\u0169
+      r\u1ED3i\u2026"
+  - speaker: Lena
+    text: "\u0110\u1EEBng lo khu qu\xE2n s\u1EF1 \u0111\xF3 c\xE1ch \u0111\xE2y kh\xF4ng
+      c\xF2n xa \u0111\xE2u, ch\xFAng ta s\u1EBD s\u1EDBm t\u1EDBi th\xF4i"

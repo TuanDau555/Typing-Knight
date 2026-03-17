@@ -9,9 +9,9 @@ public class CheckInputPlus : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (GameManagerEndless.Instance != null)
+        if (GameManager.Instance != null)
         {
-            currentWord = GameManagerEndless.Instance.GetRandomContent();
+            currentWord = GameManager.Instance.GetNextContent();
         }
         else
         {

@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f100c39ea54d1945a1f135cd657088f, type: 3}
+  m_Name: chap3_2
+  m_EditorClassIdentifier: Assembly-CSharp::LevelStoryData
+  levelName: 
+  introLines:
+  - speaker: Arin
+    text: "\u0111\xE2y l\xE0 khu qu\xE2n s\u1EF1 \u0111\xF3 sao hoang t\xE0n th\u1EADt\u2026"
+  - speaker: ???
+    text: "C\xE1c ng\u01B0\u01A1i l\xE0 ai c\xF3 ph\u1EA3i con ng\u01B0\u1EDDi kh\xF4ng?"
+  - speaker: Lena
+    text: "Ch\xFAng t\xF4i c\xF2n s\u1ED1ng , ch\xFAng t\xF4i l\xE0 con ng\u01B0\u1EDDi,
+      ai \u0111\u1EA5y c\xF3 th\u1EC3 ra m\u1EB7t \u0111\u01B0\u1EE3c kh\xF4ng??"
+  - speaker: Dr.Elias
+    text: "Con ng\u01B0\u1EDDi sao th\u1EADt t\u1ED1t \u0111\u1EA5y , th\u1EA5t l\u1EC5
+      r\u1ED3i ta t\u1EF1 gi\u1EDBi thi\u1EC7u , ta l\xE0 c\u1EF1u chi\u1EBFn binh
+      \u0111\xE3 chinh chi\u1EBFn \u1EDF n\u01A1i n\xE0y"
+  - speaker: Arin
+    text: "Th\u1EADt t\u1ED1t qu\xE1 \xF4ng c\xF3 bi\u1EBFt g\xEC v\u1EC1 nh\u1EEFng
+      con qu\xE1i v\u1EADt ngo\xE0i kia kh\xF4ng??"
+  - speaker: Dr.Elias
+    text: "Haizzz  kh\xF4ng h\u1EB3n l\xE0 bi\u1EBFt nh\u01B0ng \u0111\xE2y c\u0169ng
+      ch\u1EC9 l\xE0 suy ngh\u0129 c\u1EE7a ta th\xF4i. V\xE0i  th\xE1ng tr\u01B0\u1EDBc
+      b\u1ED7ng c\xF3 1 vi\xEAn thi\xEAn th\u1EA1ch \u0111\xE3 r\u01A1i xu\u1ED1ng
+      n\u01A1i n\xE0y c\xE1ch \u0111\xE2y kh\xF4ng xa , khi ta ki\u1EC3m tra th\xEC
+      ph\xE1t hi\u1EC7n 1 hang \u0111\u1ED9ng k\xEC d\u1ECB do thi\xEAn th\u1EA1ch
+      \u0111\xF3 t\u1EA1o ra ,nh\xECn th\xEC n\xF3 th\xF4ng s\xE2u xu\u1ED1ng l\xF2ng
+      \u0111\u1EA5t. B\u1ED7ng c\xF3 nh\u1EEFng th\u1EE9 nh\u1EA7y nh\u1EE5a b\u1EAFt
+      \u0111\u1EA7u tr\u1ED3i l\xEAn t\u1EEB b\xEAn trong \u0111\xF3. C\xE1c chi\u1EBFn
+      binh kh\xE1c canh gi\u1EEF n\u01A1i n\xE0y \u0111\xE3 hi sinh c\u1EA3 r\u1ED3i
+      , c\xF2n m\u1ED7i m\xECnh ta l\xE0 c\u1EA7m c\u1EF1 \u0111\u01B0\u1EE3c t\u1EDBi
+      b\xE2y gi\u1EDD\u2026"
+  - speaker: Arin
+    text: "T\xF4i hi\u1EC3u r\u1ED3i c\xF3 th\u1EC3 ch\xFAng l\xE0 th\u1EF1c th\u1EC3
+      ngo\xE0i h\xE0nh tinh , ho\u1EB7c l\xE0 th\u1EF1c th\u1EC3 \u0111\u1EBFn t\u1EEB
+      s\xE2u b\xEAn d\u01B0\u1EDBi l\xF2ng \u0111\u1EA5t\u2026"
+  - speaker: Shadow
+    text: "g\xE2u g\xE2u g\xE2u g\xE2u !"
+  - speaker: Lena
+    text: "C\u1EA9n th\u1EADn b\u1ECDn ch\xFAng l\u1EA1i t\u1EDBi n\u1EEFa k\xECa"
+  outroLines:
+  - speaker: Dr.Elias
+    text: "c\xF3 v\u1EBB nh\u01B0 t\xECnh h\xECnh ng\xE0y c\xE0ng nguy hi\u1EC3m
+      r\u1ED3i\u2026"
+  - speaker: Arin
+    text: "T\xF4i c\xF3 c\xE1ch gi\u1EA3i quy\u1EBFt r\u1ED3i. Nh\u01B0ng tr\u01B0\u1EDBc
+      \u0111\xF3 h\xE3y ngh\u1EC9 ng\u01A1i tr\u01B0\u1EDBc \u0111\xE3 r\u1ED3i ch\xFAng
+      ta s\u1EBD b\xE0n v\u1EC1 v\u1EA5n \u0111\u1EC1 \u0111\xF3"
+  - speaker: Dr..Elias
+    text: "\u0110\u01B0\u1EE3c r\u1ED3i\u2026"
