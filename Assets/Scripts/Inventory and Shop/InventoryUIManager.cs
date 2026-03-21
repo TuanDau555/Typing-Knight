@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class InventoryUIManager : MonoBehaviour
@@ -7,7 +8,9 @@ public class InventoryUIManager : MonoBehaviour
 
     [Tooltip("Attach the slot object")]
     [SerializeField] private InventorySlotUI[] slots;
-
+    
+    [SerializeField] private TextMeshProUGUI goldText;
+    
     #endregion
 
     #region Execute
@@ -22,6 +25,7 @@ public class InventoryUIManager : MonoBehaviour
         }
         Debug.Log("InventoryUIManager OnEnable");
         InventoryManager.Instance.OnInventoryChanged += RefreshUI;
+        InventoryManager.Instance.OnGoldChanged += UpdateGold;
         RefreshUI();
     }
 
@@ -29,9 +33,12 @@ public class InventoryUIManager : MonoBehaviour
     private void OnDisable()
     {
         InventoryManager.Instance.OnInventoryChanged -= RefreshUI;
+        InventoryManager.Instance.OnGoldChanged -= UpdateGold;
     }
 
     #endregion
+
+    #region Refresh UI
 
     private void RefreshUI()
     {
@@ -48,5 +55,12 @@ public class InventoryUIManager : MonoBehaviour
                 slots[i].SetEmpty();
             }
         }
-    }    
+    }
+
+    private void UpdateGold()
+    {
+        goldText.text = InventoryManager.Instance.GetGold().ToString() + "$";
+    }
+
+    #endregion 
 }
