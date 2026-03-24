@@ -336,7 +336,7 @@ MonoBehaviour:
   pausePanel: {fileID: 1630817419}
   winResult: {fileID: 1630817417}
   wall: {fileID: 1671170051}
-  levelStory: {fileID: 11400000, guid: cff296e2b2793dd4691f35782eadf7a1, type: 2}
+  levelStory: {fileID: 0}
 --- !u!114 &572746230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -810,7 +810,7 @@ MonoBehaviour:
     enemyAttackDamage: 3
     enemyAttcakInterval: 1
     selectedTopic:
-    - {fileID: 11400000, guid: b5cb8916eb2082b40bcc89d695c043ca, type: 2}
+    - {fileID: 11400000, guid: 828073d7903fae647a66563b82e3e6d5, type: 2}
 --- !u!4 &1500280876
 Transform:
   m_ObjectHideFlags: 0
@@ -1500,9 +1500,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 572746229}
+    - target: {fileID: 5749351839228751251, guid: 53146b62113175c40845ea076086f5a8, type: 3}
+      propertyPath: m_text
+      value: 'Wrong
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 6486176366207836517, guid: 53146b62113175c40845ea076086f5a8, type: 3}
       propertyPath: m_text
-      value: 
+      value: 'Score
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 7126627772151462018, guid: 53146b62113175c40845ea076086f5a8, type: 3}
       propertyPath: m_IsActive

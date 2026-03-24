@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 public class TimerManager : MonoBehaviour
 {
+    public bool IsCountdownMode => isCountdownMode;
     #region Parameters
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private float targetTime = 180f;

@@ -47,7 +47,7 @@ public class SpawnEndless : MonoBehaviour
             }
         }
 
-        spawnCoroutine = StartCoroutine(SpawnRoutine());
+        //spawnCoroutine = StartCoroutine(SpawnRoutine());
     }
 
     void Update()
@@ -57,7 +57,7 @@ public class SpawnEndless : MonoBehaviour
         float elapsedTime = gameManager.ElapsedTime;
         UpdateDifficulty(elapsedTime);
 
-        if (gameManager.IsGameEnd) return;
+        if (gameManager.IsGameEnd || gameManager.IsPaused) return;
 
         if (!string.IsNullOrEmpty(Input.inputString))
         {
@@ -110,6 +110,7 @@ public class SpawnEndless : MonoBehaviour
 
     IEnumerator SpawnRoutine()
     {
+        yield return null;
         while (true)
         {
             activeEnemies.RemoveAll(item => item == null);
@@ -133,7 +134,13 @@ public class SpawnEndless : MonoBehaviour
 
         // 2. Sinh quái vật ra ĐÚNG vị trí (X và Y) của Spawn Point đó
         GameObject newEnemy = Instantiate(enemyPrefab, spawnPos.position, Quaternion.identity);
-
+       
+        CheckInputPlus check = newEnemy.GetComponent<CheckInputPlus>();
+        if (check != null && gameManager != null)
+        {
+            string content = gameManager.GetNextContent();
+            check.SetContent(content);        // ← dùng hàm mới
+        }
         // 3. Cài đặt các thông số cho quái
         Move1 moveScript = newEnemy.GetComponent<Move1>();
         if (moveScript != null)

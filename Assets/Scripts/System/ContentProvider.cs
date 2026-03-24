@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ContentProvider : MonoBehaviour
 {
-    [SerializeField] private DataConFigOS dataconfig;  // kéo asset GameConfig vào đây
+     private DataConfigOS dataConfig;  // kéo asset GameConfig vào đây
 
-    private List<TopicDataOS> activeTopics = new List<TopicDataOS>();
+     private List<TopicDataOS> activeTopics = new List<TopicDataOS>();
 
     public void SetActiveTopics(List<Gamephase> currentPhases)
     {
@@ -27,12 +26,14 @@ public class ContentProvider : MonoBehaviour
         // Fallback: Nếu duyệt xong mà vẫn không có topic nào, lấy toàn bộ từ dataconfig
         if (activeTopics.Count == 0)
         {
-            if (dataconfig != null && dataconfig.allTopics != null)
-                activeTopics.AddRange(dataconfig.allTopics);
+            if (dataConfig != null && dataConfig.allTopics != null)
+                activeTopics.AddRange(dataConfig.allTopics);
         }
 
         if (activeTopics.Count == 0)
             Debug.LogError("Không có topic nào khả dụng!");
+        else
+        Debug.Log($"✅ Active topics: {activeTopics.Count}");
     }
     public string GetRandomContent()
     {

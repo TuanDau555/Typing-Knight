@@ -1,57 +1,72 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
+
 public class CheckInputPlus : MonoBehaviour
 {
     [SerializeField] private TextMeshPro textMesh;
 
-    public string currentWord;
+    private string currentWord = "";
     private int currentIndex = 0;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        if (GameManager.Instance != null)
-        {
-            currentWord = GameManager.Instance.GetNextContent();
-        }
-        else
-        {
-            currentWord = "abc";
-        }
-        UpdateVisual();
 
+    private void Awake()  // Đổi thành Awake để chạy sớm hơn Start
+    {
+        if (textMesh == null)
+            textMesh = GetComponentInChildren<TextMeshPro>();
+
+    }
+
+    public void SetContent(string newContent)   // ← Hàm mới quan trọng
+    {
+        if (string.IsNullOrEmpty(newContent))
+            newContent = "???";
+
+        currentWord = newContent;
+        currentIndex = 0;
+        UpdateVisual();
     }
 
     public bool CheckChar(char inputChar)
     {
-        char charNeedToType = currentWord[currentIndex];
-        if (char.ToLower(inputChar) == char.ToLower(charNeedToType))
+        if (currentIndex >= currentWord.Length) return false;
+
+        char needed = currentWord[currentIndex];
+        if (char.ToLower(inputChar) == char.ToLower(needed))
         {
             currentIndex++;
             UpdateVisual();
 
-            if (currentIndex >= currentWord.Length)
-            {
-                return true;
-            }
+            return currentIndex >= currentWord.Length; // true = chết
         }
         return false;
     }
 
     public char GetCurrentChar()
     {
-        if (currentIndex < currentWord.Length)
-        {
-            return currentWord[currentIndex];
-        }
-        return ' ';
+        return currentIndex < currentWord.Length ? currentWord[currentIndex] : ' ';
     }
 
-    void UpdateVisual()
+    private void UpdateVisual()
     {
-        string typePart = currentWord.Substring(0, currentIndex);
-        string remainPart = currentWord.Substring(currentIndex);
+        if (textMesh == null) return;
 
-        textMesh.text = $"<color=green>{typePart}</color><color=white>{remainPart}</color>";
+        string typed = currentWord.Substring(0, currentIndex);
+        string remain = currentIndex < currentWord.Length
+            ? currentWord.Substring(currentIndex)
+            : "";
+
+        textMesh.text = $"<color=#00FF00>{typed}</color><color=#FFFFFF>{remain}</color>";
     }
 
+    // Tự động lấy nếu chưa được gán (dành cho test nhanh)
+    private void Start()
+    {
+        if (string.IsNullOrEmpty(currentWord) && GameManager.Instance != null)
+        {
+            SetContent(GameManager.Instance.GetNextContent());
+        }
+        else if (string.IsNullOrEmpty(currentWord))
+        {
+            SetContent("test");
+        }
+    }
 }

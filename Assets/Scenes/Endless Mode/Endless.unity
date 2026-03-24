@@ -336,7 +336,7 @@ MonoBehaviour:
   pausePanel: {fileID: 1630817419}
   winResult: {fileID: 1630817417}
   wall: {fileID: 1671170051}
-  levelStory: {fileID: 11400000, guid: cff296e2b2793dd4691f35782eadf7a1, type: 2}
+  levelStory: {fileID: 0}
 --- !u!114 &572746230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,8 +856,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimerManager
   timerText: {fileID: 6845969046016329681}
-  targetTime: 20
-  isCountdownMode: 1
+  targetTime: 1e+11
+  isCountdownMode: 0
   OnTimeUp:
     m_PersistentCalls:
       m_Calls:

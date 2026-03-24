@@ -1,25 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName ="DataConfigOS", menuName ="Typing-Knight, order= 1")]
-public class DataConFigOS : ScriptableObject 
+[CreateAssetMenu(fileName ="DataConfigOS", menuName ="Typing-Knight", order= 1)]
+public class DataConfigOS : ScriptableObject 
 {
     [Header("All Topics (For All Mode)")]
-    public List<GameTopic> allTopics = new List<GameTopic>();
+    public List<TopicDataOS> allTopics = new List<TopicDataOS>();
 
-    [Header("Setting for all mode")]
-    public List<ModeLevelConfig> modeLevels = new List<ModeLevelConfig>() ;
 }
 
-[System.Serializable]
-public class ModeLevelConfig
-{
-    public string levelName = "level 1";
-    public float targetTime = 180f;
-    public bool isWordMode = true;
-    [Header("cot moc tang do kho trong man")]
-    public List<Gamephase> phases = new List<Gamephase>();
-}
 
 [System.Serializable]
 public class Gamephase

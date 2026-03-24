@@ -13,12 +13,19 @@ public class GameManager : MonoBehaviour
     [Header("UI Panels")]
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject gameWinPanel;
+    [SerializeField] private UIPause pausePanel;
+
+    [Header("New UI Manager")]
+    [SerializeField] private UIWinResult winResult; // Kéo script WinResultUI vào đây
+    [SerializeField] private Wall wall;               // Kéo Wall vào đây
 
     [Header("Story")]
     [SerializeField] private LevelStoryData levelStory;
     
     private bool isGameRunning = false;
     public bool IsGameEnd => !isGameRunning;
+    private bool isPaused = false;
+    public bool IsPaused => isPaused;
     public float ElapsedTime => timer != null ? timer.ElapsedTime : 0;
 
     private void Awake()
@@ -47,6 +54,16 @@ public class GameManager : MonoBehaviour
         else
         {
             OnIntroComplete();
+        }
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            if (isGameRunning) 
+            {
+                TogglePause();
+            }
         }
     }
     private void OnIntroComplete()
@@ -85,10 +102,48 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         gameOverPanel.SetActive(true);
     }
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            Time.timeScale = 0f;
+            int score = scoreManager != null ? scoreManager.Score : 0;
+            int wrong = scoreManager != null ? scoreManager.WrongCount : 0;
+            float time = timer != null ? timer.ElapsedTime : 0;
+
+            pausePanel.Show(score, wrong, time);
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            pausePanel.Hide();
+        }
+    }
+
+    // Hàm dùng cho nút "Resume" trên UI
+    public void ResumeGame()
+    {
+        if (isPaused) TogglePause();
+    }
+
+    // Hàm dùng cho nút "Quit" hoặc về Menu
+    public void LoadMainMenu(string sceneName)
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneName);
+    }
 
     private void ShowWinPanel()
     {
-        gameWinPanel.SetActive(true);
+        int score = scoreManager != null ? scoreManager.Score : 0;
+        int wrong = scoreManager != null ? scoreManager.WrongCount : 0;
+        float time = timer != null ? timer.ElapsedTime : 0;
+        bool isCountdown = timer != null && timer.IsCountdownMode;
+        float hpPercent = wall != null ? wall.GetHpPercent() : 0;
+
+        winResult.Show(score, wrong, time, hpPercent, isCountdown);
     }
 
     private void HideAllPanels()
