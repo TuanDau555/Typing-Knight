@@ -19,17 +19,21 @@ public class UIWinResult : MonoBehaviour
     [SerializeField] private float scoreDivisor = 10f;
 
     [Header("UI References")]
-    [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject mainPanel;
+    [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private TextMeshProUGUI resultSummaryText;
     //[SerializeField] private TextMeshProUGUI moneyText;
 
     [Header("Stars UI")]
     [SerializeField] private GameObject starContainer; // Chứa 3 ngôi sao
     [SerializeField] private GameObject[] stars;        // Mảng 3 ngôi sao (Image/Object)
-    public void Show(int score, int wrong, float elapsedTime, float hpPercent, bool isCountdown)
+    public void Show(int score, int wrong, float elapsedTime, float hpPercent, bool isCountdown, bool isWin)
     {
-        if (winPanel != null) winPanel.SetActive(true);
-
+        if (mainPanel != null) mainPanel.SetActive(true);
+        if (titleText != null)
+        {
+            titleText.text = isWin ? "GAME WIN" : "GAME OVER";
+        }
         // --- LOGIC QUY ĐỔI TIỀN ---
         // Đảm bảo không chia cho 0 để tránh lỗi
         float finalDivisor = Mathf.Max(0.1f, scoreDivisor);
@@ -43,14 +47,17 @@ public class UIWinResult : MonoBehaviour
                                  $"<color=#FFD700>Money: +{earnedMoney}$</color>"; // Hiện tiền màu vàng
 
         // 2. Xử lý đánh giá Sao
-        if (isCountdown)
+        if (starContainer != null)
         {
-            starContainer.SetActive(true);
-            EvaluateStars(score, wrong, hpPercent);
-        }
-        else
-        {
-            starContainer.SetActive(false); // Mode thường không hiện sao
+            // ĐIỀU KIỆN HIỆN SAO: Phải là Panel Thắng VÀ Phải là mode Countdown
+            bool shouldShowStars = isWin && isCountdown;
+
+            starContainer.SetActive(shouldShowStars);
+
+            if (shouldShowStars)
+            {
+                EvaluateStars(score, wrong, hpPercent);
+            }
         }
 
         // Gọi hệ thống lưu trữ tiền ở đây

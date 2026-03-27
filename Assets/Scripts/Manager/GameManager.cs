@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIPause pausePanel;
 
     [Header("New UI Manager")]
-    [SerializeField] private UIWinResult winResult; // Kéo script WinResultUI vào đây
+    [SerializeField] private UIWinResult winResult;
+    [SerializeField] private UIWinResult gameOverResultUI;
     [SerializeField] private Wall wall;               // Kéo Wall vào đây
 
     [Header("Story")]
@@ -100,7 +101,7 @@ public class GameManager : MonoBehaviour
         isGameRunning = false;
         timer?.StopTimer();
         Time.timeScale = 0f;
-        gameOverPanel.SetActive(true);
+        ShowOverPanel();
     }
     public void TogglePause()
     {
@@ -143,7 +144,17 @@ public class GameManager : MonoBehaviour
         bool isCountdown = timer != null && timer.IsCountdownMode;
         float hpPercent = wall != null ? wall.GetHpPercent() : 0;
 
-        winResult.Show(score, wrong, time, hpPercent, isCountdown);
+        winResult.Show(score, wrong, time, hpPercent, true , isCountdown);
+    }
+    private void ShowOverPanel()
+    {
+        int score = scoreManager != null ? scoreManager.Score : 0;
+        int wrong = scoreManager != null ? scoreManager.WrongCount : 0;
+        float time = timer != null ? timer.ElapsedTime : 0;
+        float hpPercent = wall != null ? wall.GetHpPercent() : 0;
+
+        // Gửi dữ liệu cho UI Lose: isWinPanel=false, isCountdown=false (thua thì không hiện sao)
+        gameOverResultUI.Show(score, wrong, time, hpPercent, false, false);
     }
 
     private void HideAllPanels()

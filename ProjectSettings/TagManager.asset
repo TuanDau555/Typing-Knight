@@ -51,6 +51,18 @@ TagManager:
   - name: Object
     uniqueID: 1204012239
     locked: 0
+  - name: arm
+    uniqueID: 1240472825
+    locked: 0
+  - name: body player
+    uniqueID: 431650079
+    locked: 0
+  - name: weapon
+    uniqueID: 1927545167
+    locked: 0
+  - name: arm hold
+    uniqueID: 767636179
+    locked: 0
   - name: UI
     uniqueID: 1077793837
     locked: 0

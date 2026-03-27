@@ -508,7 +508,7 @@ MonoBehaviour:
   winResult: {fileID: 1630817417}
   gameOverResultUI: {fileID: 1630817417}
   wall: {fileID: 1671170051}
-  levelStory: {fileID: 11400000, guid: cff296e2b2793dd4691f35782eadf7a1, type: 2}
+  levelStory: {fileID: 11400000, guid: 50bf9c15e2b31b1469dafc32a8b27c61, type: 2}
 --- !u!114 &572746230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1100,7 +1100,7 @@ MonoBehaviour:
     enemyAttackDamage: 1
     enemyAttcakInterval: 1
     selectedTopic:
-    - {fileID: 11400000, guid: b5cb8916eb2082b40bcc89d695c043ca, type: 2}
+    - {fileID: 11400000, guid: ae546d043e38bc64fa87a5c4aa6eef89, type: 2}
   - startTime: 30
     maxEnemies: 6
     spawnInterval: 2
@@ -1108,7 +1108,7 @@ MonoBehaviour:
     enemyAttackDamage: 1
     enemyAttcakInterval: 1
     selectedTopic:
-    - {fileID: 11400000, guid: b5cb8916eb2082b40bcc89d695c043ca, type: 2}
+    - {fileID: 11400000, guid: ae546d043e38bc64fa87a5c4aa6eef89, type: 2}
   - startTime: 60
     maxEnemies: 9
     spawnInterval: 1.5
@@ -1116,7 +1116,7 @@ MonoBehaviour:
     enemyAttackDamage: 1
     enemyAttcakInterval: 1
     selectedTopic:
-    - {fileID: 11400000, guid: b5cb8916eb2082b40bcc89d695c043ca, type: 2}
+    - {fileID: 11400000, guid: ae546d043e38bc64fa87a5c4aa6eef89, type: 2}
   - startTime: 90
     maxEnemies: 9
     spawnInterval: 1.5
@@ -1124,7 +1124,7 @@ MonoBehaviour:
     enemyAttackDamage: 1
     enemyAttcakInterval: 1
     selectedTopic:
-    - {fileID: 11400000, guid: b5cb8916eb2082b40bcc89d695c043ca, type: 2}
+    - {fileID: 11400000, guid: ae546d043e38bc64fa87a5c4aa6eef89, type: 2}
   - startTime: 120
     maxEnemies: 9
     spawnInterval: 1.5
@@ -1132,7 +1132,7 @@ MonoBehaviour:
     enemyAttackDamage: 1
     enemyAttcakInterval: 1
     selectedTopic:
-    - {fileID: 11400000, guid: b5cb8916eb2082b40bcc89d695c043ca, type: 2}
+    - {fileID: 11400000, guid: ae546d043e38bc64fa87a5c4aa6eef89, type: 2}
 --- !u!4 &1500280876
 Transform:
   m_ObjectHideFlags: 0
@@ -1287,7 +1287,7 @@ MonoBehaviour:
   scoreText: {fileID: 5487048540926726210}
   wrongText: {fileID: 3961506817006023551}
   timeText: {fileID: 1159674237282765473}
-  sceneToLoad: Menu Story Mode Chap 1
+  sceneToLoad: Menu Story Mode Chap1
 --- !u!1 &1652822345
 GameObject:
   m_ObjectHideFlags: 0
