@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class SaveManager : SingletonPersistent<SaveManager>
 {
     #region Parameter
@@ -15,7 +17,7 @@ public class SaveManager : SingletonPersistent<SaveManager>
     #endregion
 
     #region Execute
-    void Start()
+    private void Start()
     {
         fileDataHandler = new FileDataHandler(Application.persistentDataPath, savefileName);
 
@@ -23,6 +25,29 @@ public class SaveManager : SingletonPersistent<SaveManager>
 
         saveableObject = FindAllSaveableObjects();
     }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    #endregion
+
+    #region Events
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        RefreshSaveables();
+
+        if(HasSaveFile())
+            LoadGame();
+    }
+
     #endregion
 
     #region Save/Load

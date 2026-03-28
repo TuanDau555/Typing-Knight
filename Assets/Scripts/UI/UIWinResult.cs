@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 [System.Serializable]
 public class WinConditions
@@ -27,6 +28,9 @@ public class UIWinResult : MonoBehaviour
     [Header("Stars UI")]
     [SerializeField] private GameObject starContainer; // Chứa 3 ngôi sao
     [SerializeField] private GameObject[] stars;        // Mảng 3 ngôi sao (Image/Object)
+
+    private int saveGold;
+    
     public void Show(int score, int wrong, float elapsedTime, float hpPercent, bool isCountdown, bool isWin)
     {
         if (mainPanel != null) mainPanel.SetActive(true);
@@ -60,8 +64,9 @@ public class UIWinResult : MonoBehaviour
             }
         }
 
-        // Gọi hệ thống lưu trữ tiền ở đây
-        // Wallet.Instance.AddMoney(earnedMoney);
+        saveGold = InventoryManager.Instance.GetGold() + earnedMoney;
+        UpdateGold();
+        SaveManager.Instance.SaveGame();
     }
 
     private void EvaluateStars(int score, int wrong, float hpPercent)
@@ -78,5 +83,15 @@ public class UIWinResult : MonoBehaviour
         // Điều kiện 3: Máu của tường
         if (hpPercent >= conditions.minHpPercent) stars[2].SetActive(true);
     }
+
+    #region Events
+
+    private void UpdateGold()
+    {
+        InventoryManager.Instance.SetGold(saveGold);
+    }
+        
+    #endregion
+    
 }
 

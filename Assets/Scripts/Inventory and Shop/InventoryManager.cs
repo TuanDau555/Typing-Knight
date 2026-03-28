@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : Singleton<InventoryManager>, IItemContainer, ISaveable
+public class InventoryManager : SingletonPersistent<InventoryManager>, IItemContainer, ISaveable
 {
     #region Save Keys
     
@@ -153,6 +153,15 @@ public class InventoryManager : Singleton<InventoryManager>, IItemContainer, ISa
         return gold;
     }
 
+    #endregion
+
+    #region SET
+
+    public void SetGold(int amount)
+    {
+        gold = amount;
+    }
+    
     #endregion
 
     #region Save/Load
