@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f100c39ea54d1945a1f135cd657088f, type: 3}
+  m_Name: chap3_3
+  m_EditorClassIdentifier: Assembly-CSharp::LevelStoryData
+  levelName: 
+  introLines:
+  - speaker: Arin
+    text: "T\xF4i mu\u1ED1n n\u1ED5 s\u1EADp c\u1EA3 hang \u0111\u1ED9ng kia \u0111\u1EC3
+      l\u1EA5p khe n\u1EE9t \u0111\xF3 l\u1EA1i\u2026"
+  - speaker: Dr.Elias
+    text: "C\u1EADu b\u1ECB \u0111i\xEAn r\u1ED3i \xE0, \u0110\u1EC3 l\xE0m \u0111\u01B0\u1EE3c
+      \u0111i\u1EC1u \u0111\xF3 v\u1EDBi t\xECnh tr\u1EA1ng hi\u1EC7n t\u1EA1i l\xE0
+      ho\xE0n to\xE0n kh\xF4ng th\u1EC3. N\u1EBFu kh\xF4ng c\u1EA9n th\u1EADn th\xEC
+      c\xF3 th\u1EC3 n\u1ED5 ch\u1EBFt c\u1EA3 \u0111\xE1m tr\u01B0\u1EDBc khi cho
+      s\u1EADp c\xE1i hang ch\u1EBFt ti\u1EC7t \u0111\xF3 \u0111\u1EA5y. ch\u01B0a
+      k\u1EC3 vi\u1EC7c \u0111\u01B0a \u0111\u1ED1ng v\u1EADt n\u1ED5 \u0111\xF3
+      \u0111\u1EBFn hang l\xE0 \u0111\xE3 nguy hi\u1EC3m l\u1EAFm r\u1ED3i"
+  - speaker: Arin
+    text: "T\xF4i tin t\xF4i c\xF3 th\u1EC3 l\xE0m \u0111\u01B0\u1EE3c , t\xF4i mu\u1ED1n
+      k\u1EBFt th\xFAc c\xE1i chuy\u1EC7n ch\u1EBFt ti\u1EC7c \u0111ang x\u1EA3y
+      ra l\u1EAFm r\u1ED3i, t\xF4i mu\u1ED1n ng\xF4i nh\xE0 x\u01B0a c\u1EE7a t\xF4i
+      v\u1EABn tr\xE0n ng\u1EADp ti\u1EBFng c\u01B0\u1EDDi n\xF3i n\u1EEFa\u2026"
+  - speaker: Dr.Elias
+    text: "T\xF4i hi\u1EC3u nh\u01B0ng c\u1EADu c\u1EA7n suy ngh\u0129 l\u1EA1i kh\xF4ng
+      \u0111i\u1EC1u n\xE0y r\u1EA5t nguy hi\u1EC3m \u0111\u1EA5y!"
+  - speaker: Arin
+    text: "T\xF4i suy ngh\u0129 k\u0129 r\u1ED3i , t\xF4i mu\u1ED1n b\u1EA3o v\u1EC7
+      nh\u1EEFng ng\u01B0\u1EDDi xung quanh t\xF4i , Shadow , lena\u2026"
+  - speaker: Lena
+    text: "*H\u1ED9c H\u1ED9c* Aria   b\u1ECDn ch\xFAng l\u1EA1i t\u1EDBi n\u1EEFa
+      r\u1ED3i !!"
+  outroLines:
+  - speaker: Dr.Elias
+    text: "\u0111\u01B0\u1EE3c r\u1ED3i t\xF4i hi\u1EC3u r\u1ED3i t\xF4i s\u1EBD
+      kh\xF4ng c\u1EA3n c\u1EADu n\u1EEFa , t\xF4i s\u1EBD h\u1ED7 tr\u1EE3 cho c\u1EADu"

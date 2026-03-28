@@ -34,6 +34,7 @@ public class Move1 : MonoBehaviour
 
         // Khởi tạo velocity Y = 0
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+        myLaneY = transform.position.y;
     }
 
     #region di chuyển vật lý  và giữ lane
@@ -80,7 +81,7 @@ public class Move1 : MonoBehaviour
         float closestDist = float.MaxValue;
 
         foreach (var col in hits)
-        {
+        { 
             if (col.gameObject == gameObject) continue;
 
             Move1 other = col.GetComponent<Move1>();

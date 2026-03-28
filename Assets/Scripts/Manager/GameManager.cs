@@ -1,223 +1,174 @@
-﻿/*using UnityEngine;
-using TMPro;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
-[System.Serializable]
-public class GameTopic
+
+public class GameManager : MonoBehaviour
 {
-    public string topicName;
-    [Header("Chọn chế độ")]
-    [SerializeField] public bool isWordMode;
-    [Header("Data")]
-    [TextArea(3, 5)]
-    [SerializeField] public string charSet;
-    [SerializeField] public List<string> wordList;
-}
-public class GameManagerEndless : MonoBehaviour
-{
-    public static GameManagerEndless Instance;
-    [Header("UI Score & Wrong")]
-    [SerializeField] private TextMeshProUGUI wrongKeyText;
-    [SerializeField] private TextMeshProUGUI scoreKeyText;
-    [Header("UI Over & Win")]
-    [SerializeField] private GameObject gameOverUI;
-    [SerializeField] private GameObject gameWinUI;
-    [Header("Timer Settings")]
-    [SerializeField] private TextMeshProUGUI timerText;
-    [Tooltip("Thời gian mục tiêu (giây) - dùng cho đếm ngược hoặc giới hạn đếm lên")]
-    [SerializeField] private float targetTime = 180f; // 3 phút mặc định
-    [Header("Timer Mode")]
-    [Tooltip("true = Đếm ngược (từ targetTime về 0 → Win), false = Đếm lên (từ 0 lên vô hạn hoặc đến targetTime)")]
-    [SerializeField] private bool isCountdownMode = true; // Chế độ mặc định: đếm ngược
-    [Header("Game setting")]
-    [SerializeField] public List<GameTopic> allTopics;
-    [SerializeField] public List<int> selectedTopicIndices = new List<int>();
-    [SerializeField] private bool fallbackToAllIfNoneSelected = true;
-    public float CurrentTime { get; private set; }
-    public float elapsedTime { get; private set; } = 0f;
-    public bool isGameOver = false;
-    public bool isGameWin = false;
-    public bool isGameEnd = false;
-    private int wrong = 0;
-    private int score = 0;
-    private Gamephase currentPhase;
+    public static GameManager Instance { get; private set; }
+    [Header("Managers")]
+    [SerializeField] private TimerManager timer;
+    [SerializeField] private ScoreManager scoreManager;
+    [SerializeField] private ContentProvider contentProvider;
+
+    [Header("UI Panels")]
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject gameWinPanel;
+    [SerializeField] private UIPause pausePanel;
+
+    [Header("New UI Manager")]
+    [SerializeField] private UIWinResult winResult;
+    [SerializeField] private UIWinResult gameOverResultUI;
+    [SerializeField] private Wall wall;               // Kéo Wall vào đây
+
+    [Header("Story")]
+    [SerializeField] private LevelStoryData levelStory;
+    
+    private bool isGameRunning = false;
+    public bool IsGameEnd => !isGameRunning;
+    private bool isPaused = false;
+    public bool IsPaused => isPaused;
+    public float ElapsedTime => timer != null ? timer.ElapsedTime : 0;
+
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
+        Instance = this;
     }
-    void Start()
+    private void Start()
     {
-        isGameOver = false;
-        isGameWin = false;
-        isGameEnd = false;
-        Time.timeScale = 1;
-        CurrentTime = targetTime;
-        elapsedTime = 0f;
-        UpdateUI();
-        UpdateTimerUI();
-        gameOverUI.SetActive(false);
-        gameWinUI.SetActive(false);
-    }
-    void Update()
-    {
-        if (isGameOver || isGameEnd) return;
-        // Thời gian đã trôi qua luôn tăng
-        elapsedTime += Time.deltaTime;
-        // Cập nhật CurrentTime theo chế độ
-        if (isCountdownMode)
+        HideAllPanels();
+        Time.timeScale = 0f;
+
+        // Khởi tạo các manager
+        timer?.Reset();
+        scoreManager?.Reset();
+ 
+        // Intro
+        if (levelStory != null && levelStory.introLines.Length > 0)
         {
-            CurrentTime = targetTime - elapsedTime;
-            if (CurrentTime <= 0)
-            {
-                CurrentTime = 0;
-                GameWin(); // Đếm ngược hết → thắng
-            }
+            DialogueManager.Instance.StartDialogue(levelStory.introLines, OnIntroComplete);
         }
         else
         {
-            CurrentTime = elapsedTime; // Đếm lên bình thường
-            // Optional: Nếu muốn thắng khi đạt targetTime (ví dụ 180s)
-            // if (CurrentTime >= targetTime) GameWin();
-        }
-        UpdateTimerUI();
-    }
-    // Hàm để chuyển chế độ runtime (gọi từ button hoặc script khác nếu cần)
-    public void SetCountdownMode(bool countdown)
-    {
-        isCountdownMode = countdown;
-        Debug.Log("Chuyển chế độ timer: " + (countdown ? "Đếm ngược" : "Đếm lên"));
-        // Reset thời gian khi chuyển chế độ (tùy ý bạn)
-        if (countdown)
-            CurrentTime = targetTime;
-        else
-            CurrentTime = 0f;
-        UpdateTimerUI();
-    }
-    public void SetCurrentPhase(Gamephase phase)
-    {
-        currentPhase = phase;
-        Debug.Log("Phase hiện tại đã được cập nhật: startTime = " + (phase != null ? phase.startTime : -1));
-    }
-    public string GetRandomContent()
-    {
-        if (allTopics == null || allTopics.Count == 0)
-        {
-            Debug.LogWarning("Không có topic nào được thiết lập!");
-            return "ERROR_NO_TOPICS";
+            OnIntroComplete();
         }
-        List<GameTopic> activeTopics = GetActiveTopicsForCurrentPhase();
-        if (activeTopics.Count == 0)
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) 
         {
-            Debug.LogWarning("Không có topic nào được chọn!");
-            return "ERROR_NO_ACTIVE_TOPICS";
-        }
-        // Chọn ngẫu nhiên một topic từ các topic đã chọn
-        int randomTopicIdx = Random.Range(0, activeTopics.Count);
-        GameTopic selectedTopic = activeTopics[randomTopicIdx];
-        if (selectedTopic.isWordMode)
-        {
-            if (selectedTopic.wordList != null && selectedTopic.wordList.Count > 0)
+            if (isGameRunning) 
             {
-                int rd = Random.Range(0, selectedTopic.wordList.Count);
-                return selectedTopic.wordList[rd];
+                TogglePause();
             }
-            Debug.LogWarning("Topic từ vựng không có từ nào: " + selectedTopic.topicName);
-            return "NULL_WORD";
+        }
+    }
+    private void OnIntroComplete()
+    {
+        Time.timeScale = 1f;
+        timer?.Reset();
+        timer?.StartTimer();
+        isGameRunning = true;
+    }
+    public void SetCurrentPhase (Gamephase currentPhase)
+    {
+        List<Gamephase> phaselist = new List<Gamephase>() { currentPhase };
+        contentProvider?.SetActiveTopics(phaselist);
+    }
+    public void TriggerGameWin()
+    {
+        if (!isGameRunning) return;
+        isGameRunning = false;
+        timer?.StopTimer();
+        Time.timeScale = 0f;
+
+        if (levelStory != null && levelStory.outroLines.Length > 0)
+        {
+            DialogueManager.Instance.StartDialogue(levelStory.outroLines, ShowWinPanel);
         }
         else
         {
-            if (!string.IsNullOrEmpty(selectedTopic.charSet))
-            {
-                int rd = Random.Range(0, selectedTopic.charSet.Length);
-                return selectedTopic.charSet[rd].ToString();
-            }
-            Debug.LogWarning("Topic ký tự không có ký tự nào: " + selectedTopic.topicName);
-            return "A";
+            ShowWinPanel();
         }
     }
-    private List<GameTopic> GetActiveTopicsForCurrentPhase()
+    public void TriggerGameOver()
     {
-        if (currentPhase != null && currentPhase.selectedTopicIndices.Count > 0)
+        if (!isGameRunning) return;
+        isGameRunning = false;
+        timer?.StopTimer();
+        Time.timeScale = 0f;
+        ShowOverPanel();
+    }
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+
+        if (isPaused)
         {
-            List<GameTopic> phaseTopics = new List<GameTopic>();
-            foreach (int index in currentPhase.selectedTopicIndices)
-            {
-                if (index >= 0 && index < allTopics.Count)
-                {
-                    phaseTopics.Add(allTopics[index]);
-                }
-            }
-            return phaseTopics;
+            Time.timeScale = 0f;
+            int score = scoreManager != null ? scoreManager.Score : 0;
+            int wrong = scoreManager != null ? scoreManager.WrongCount : 0;
+            float time = timer != null ? timer.ElapsedTime : 0;
+
+            pausePanel.Show(score, wrong, time);
         }
-        // Fallback
-        if (fallbackToAllIfNoneSelected)
+        else
         {
-            return new List<GameTopic>(allTopics);
-        }
-        return new List<GameTopic>();
-    }
-    public void AddWrong(int amount)
-    {
-        wrong += amount;
-        UpdateUI();
-    }
-    public void AddScore(int amount)
-    {
-        score += amount;
-        UpdateUI();
-    }
-    private void UpdateUI()
-    {
-        if (wrongKeyText != null) wrongKeyText.text = "Wrong: " + wrong.ToString();
-        if (scoreKeyText != null) scoreKeyText.text = "Score: " + score.ToString();
-    }
-    private void UpdateTimerUI()
-    {
-        if (timerText != null)
-        {
-            float displayTime = Mathf.Max(0, CurrentTime);
-            int minutes = Mathf.FloorToInt(displayTime / 60);
-            int seconds = Mathf.FloorToInt(displayTime % 60);
-            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+            Time.timeScale = 1f;
+            pausePanel.Hide();
         }
     }
-    public void GameWin()
+
+    // Hàm dùng cho nút "Resume" trên UI
+    public void ResumeGame()
     {
-        isGameWin = true;
-        isGameEnd = true;
-        Time.timeScale = 0;
-        gameOverUI.SetActive(false);
-        gameWinUI.SetActive(true);
+        if (isPaused) TogglePause();
     }
-    public void GameOver()
+
+    // Hàm dùng cho nút "Quit" hoặc về Menu
+    public void LoadMainMenu(string sceneName)
     {
-        isGameOver = true;
-        isGameEnd = true;
-        Time.timeScale = 0;
-        gameOverUI.SetActive(true);
-        gameWinUI.SetActive(false);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneName);
     }
-    public void RestartGame()
+
+    private void ShowWinPanel()
     {
-        isGameEnd = false;
-        isGameOver = false;
-        score = 0;
-        wrong = 0;
-        CurrentTime = 0;
-        Time.timeScale = 1;
-        UpdateUI();
+        int score = scoreManager != null ? scoreManager.Score : 0;
+        int wrong = scoreManager != null ? scoreManager.WrongCount : 0;
+        float time = timer != null ? timer.ElapsedTime : 0;
+        bool isCountdown = timer != null && timer.IsCountdownMode;
+        float hpPercent = wall != null ? wall.GetHpPercent() : 0;
+
+        winResult.Show(score, wrong, time, hpPercent, true , isCountdown);
+    }
+    private void ShowOverPanel()
+    {
+        int score = scoreManager != null ? scoreManager.Score : 0;
+        int wrong = scoreManager != null ? scoreManager.WrongCount : 0;
+        float time = timer != null ? timer.ElapsedTime : 0;
+        float hpPercent = wall != null ? wall.GetHpPercent() : 0;
+
+        // Gửi dữ liệu cho UI Lose: isWinPanel=false, isCountdown=false (thua thì không hiện sao)
+        gameOverResultUI.Show(score, wrong, time, hpPercent, false, false);
+    }
+
+    private void HideAllPanels()
+    {
+        if (gameOverPanel) gameOverPanel.SetActive(false);
+        if (gameWinPanel) gameWinPanel.SetActive(false);
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        gameOverUI.SetActive(false);
     }
-    public bool IsGameEnd()
-    {
-        return isGameEnd;
-    }
-}*/
+    public void AddScore(int amount) => scoreManager?.AddScore(amount);
+    public void AddWrong(int amount = 1) => scoreManager?.AddWrong(amount);
+    public string GetNextContent() => contentProvider?.GetRandomContent() ?? "?";
+}
