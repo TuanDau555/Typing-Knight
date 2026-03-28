@@ -138,6 +138,8 @@ public class SceneSoundManager : Singleton<SceneSoundManager>
     
     #endregion
 
+    #region Ultils
+
     private IEnumerator WaitForGlobalAudio()
     {
         float timeout = 10f;
@@ -152,4 +154,6 @@ public class SceneSoundManager : Singleton<SceneSoundManager>
         if (GlobalAudioManager.Instance == null)
             Debug.LogError("GlobalAudioManager never spawned!");
     }
+    
+    #endregion
 }
