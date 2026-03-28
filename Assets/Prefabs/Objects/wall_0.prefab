@@ -184,3 +184,5 @@ MonoBehaviour:
   maxHp: 100
   defense: 0
   currentHp: 0
+  hpSlider: {fileID: 0}
+  hpText: {fileID: 0}

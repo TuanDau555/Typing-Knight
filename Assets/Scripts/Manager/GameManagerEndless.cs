@@ -185,23 +185,32 @@ public class GameManagerEndless : MonoBehaviour
     }
     private List<GameTopic> GetActiveTopicsForCurrentPhase()
     {
-        if (currentPhase != null && currentPhase.selectedTopicIndices.Count > 0)
+        if (currentPhase != null && currentPhase.selectedTopic != null && currentPhase.selectedTopic.Count > 0)
         {
             List<GameTopic> phaseTopics = new List<GameTopic>();
-            foreach (int index in currentPhase.selectedTopicIndices)
+
+            foreach (TopicDataOS topicOS in currentPhase.selectedTopic)
             {
-                if (index >= 0 && index < allTopics.Count)
+                // Chuyển đổi TopicDataOS sang GameTopic (nếu vẫn dùng GameTopic cũ)
+                GameTopic converted = new GameTopic
                 {
-                    phaseTopics.Add(allTopics[index]);
-                }
+                    topicName = topicOS.topicName,
+                    isWordMode = topicOS.isWordMode,
+                    charSet = topicOS.charset,          // chú ý tên field có thể khác
+                    wordList = topicOS.wordList
+                };
+                phaseTopics.Add(converted);
             }
+
             return phaseTopics;
         }
-        // Fallback
-        if (fallbackToAllIfNoneSelected)
+
+        // Fallback nếu cần
+        if (fallbackToAllIfNoneSelected)
         {
             return new List<GameTopic>(allTopics);
         }
+
         return new List<GameTopic>();
     }
     public void AddWrong(int amount)
