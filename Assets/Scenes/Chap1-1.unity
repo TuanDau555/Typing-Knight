@@ -298,6 +298,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1701396715006257634, guid: dd59f9d5d8e8ab9408401e44399fea26, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -142.20001
+      objectReference: {fileID: 0}
     - target: {fileID: 2326800109459534345, guid: dd59f9d5d8e8ab9408401e44399fea26, type: 3}
       propertyPath: m_Name
       value: Canvas 1
@@ -306,6 +310,42 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1062371644}
+    - target: {fileID: 6610562748192239811, guid: dd59f9d5d8e8ab9408401e44399fea26, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610562748192239811, guid: dd59f9d5d8e8ab9408401e44399fea26, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610562748192239811, guid: dd59f9d5d8e8ab9408401e44399fea26, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160276070126434214, guid: dd59f9d5d8e8ab9408401e44399fea26, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 91c7e73a7d3237d44b82291380d0a7b8, type: 2}
+    - target: {fileID: 7160276070126434214, guid: dd59f9d5d8e8ab9408401e44399fea26, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -182603086040227103, guid: 91c7e73a7d3237d44b82291380d0a7b8, type: 2}
+    - target: {fileID: 7160276070126434214, guid: dd59f9d5d8e8ab9408401e44399fea26, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047549551432845927, guid: dd59f9d5d8e8ab9408401e44399fea26, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 91c7e73a7d3237d44b82291380d0a7b8, type: 2}
+    - target: {fileID: 8047549551432845927, guid: dd59f9d5d8e8ab9408401e44399fea26, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -182603086040227103, guid: 91c7e73a7d3237d44b82291380d0a7b8, type: 2}
+    - target: {fileID: 8047549551432845927, guid: dd59f9d5d8e8ab9408401e44399fea26, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -766,7 +806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d3e3c99a2717d459ac5509894c89b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnEndless
-  gameManagerEndless: {fileID: 0}
+  gameManagerEndless: {fileID: 1972324139}
   targetObjectA: {fileID: 606914940}
   enemyPrefab: {fileID: 7238223890239026602, guid: 9996c091de57bce419156c5cf51dc4fe, type: 3}
   spawnPoints:

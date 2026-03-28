@@ -4,12 +4,12 @@ using System.Collections;
 
 public class SpawnEndless : MonoBehaviour
 {
-    public GameManagerEndless gameManagerEndless;
-    public Transform targetObjectA;
-    public GameObject enemyPrefab;
-    public Transform[] spawnPoints;
+    [SerializeField] private GameManagerEndless gameManagerEndless;
+    [SerializeField] private Transform targetObjectA;
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private Transform[] spawnPoints;
 
-    public List<Gamephase> gamePhases = new List<Gamephase>();
+    [SerializeField] private List<Gamephase> gamePhases = new List<Gamephase>();
 
     [Header("5 Lane Y - Ngẫu nhiên")]
     public float[] laneYPositions = new float[] { -3f, -1.5f, 0f, 1.5f, 3f };
