@@ -65,7 +65,7 @@ public class UIWinResult : MonoBehaviour
         }
 
         saveGold = InventoryManager.Instance.GetGold() + earnedMoney;
-        UpdateGold();
+        UpdateGold(saveGold);
         SaveManager.Instance.SaveGame();
     }
 
@@ -86,9 +86,9 @@ public class UIWinResult : MonoBehaviour
 
     #region Events
 
-    private void UpdateGold()
+    private void UpdateGold(int amount)
     {
-        InventoryManager.Instance.SetGold(saveGold);
+        InventoryManager.Instance.SetGold(amount);
     }
         
     #endregion
