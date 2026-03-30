@@ -4,19 +4,12 @@ using System.Collections;
 
 public class SpawnEndless : MonoBehaviour
 {
-<<<<<<< HEAD:Assets/Scripts/AI/SpawnEndless.cs
-    [SerializeField] private GameManagerEndless gameManagerEndless;
-    [SerializeField] private Transform targetObjectA;
-    [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private Transform[] spawnPoints;
-=======
     public GameManager gameManager;
     public Transform targetObjectA;
     public GameObject enemyPrefab;
 
     [Header("Danh sách các vị trí Spawn")]
     public Transform[] spawnPoints;
->>>>>>> origin/Core-Gameplay:Assets/Scripts/Manager/SpawnEndless.cs
 
     [SerializeField] private List<Gamephase> gamePhases = new List<Gamephase>();
 
