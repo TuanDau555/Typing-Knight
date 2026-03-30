@@ -108,6 +108,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
         
         InventoryManager.Instance.SellItem(itemSO);
         InventoryManager.Instance.RemoveItem(itemSO, 1);
+        SaveManager.Instance.SaveGame();
     }
     
     private void ApplyItemEffect(ItemSO item)
