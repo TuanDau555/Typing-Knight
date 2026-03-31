@@ -135,11 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!1 &47068653 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8155466851875522478, guid: acc849aef97884049926664251f399e3, type: 3}
-  m_PrefabInstance: {fileID: 3101356403024671674}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &133551300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1172,7 +1167,7 @@ MonoBehaviour:
   overSummaryText: {fileID: 309110729637764932}
   starContainer: {fileID: 931518481}
   stars:
-  - {fileID: 47068653}
+  - {fileID: 0}
   - {fileID: 9798588}
   - {fileID: 1187916428}
 --- !u!4 &1630817418
