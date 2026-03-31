@@ -17,7 +17,7 @@ MonoBehaviour:
   sellPrice: 5
   maxStack: 1
   description: Just testing thing
-  itemIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  itemIcon: {fileID: 2993571543192110368, guid: c79d67e5b46e5bf42983f3dc614c6a27, type: 3}
   isGold: 0
   usable: 1
   speed: 1.55
