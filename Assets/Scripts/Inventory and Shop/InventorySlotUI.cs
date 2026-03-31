@@ -92,8 +92,8 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
         if(!stack.itemSO.usable) return;
 
         // TODO: handle apply item stats to player stats
-
-        ApplyItemEffect(stack.itemSO);
+        Debug.Log($"Use item : {stack.itemSO.name}");
+        PlayerStats.Instance.ApplyItem(stack.itemSO);
 
         // Player just use one time
         InventoryManager.Instance.RemoveItem(stack.itemSO, 1);
@@ -109,23 +109,6 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
         InventoryManager.Instance.SellItem(itemSO);
         InventoryManager.Instance.RemoveItem(itemSO, 1);
         SaveManager.Instance.SaveGame();
-    }
-    
-    private void ApplyItemEffect(ItemSO item)
-    {
-        Debug.Log($"Applying item: {item.itemName}");
-
-        if(item.health > 0)
-            Debug.Log($"Heal +{item.health}");
-
-        if(item.damage > 0)
-            Debug.Log($"Damage +{item.damage}");
-
-        if(item.speed > 0)
-            Debug.Log($"Speed +{item.speed}");
-
-        if(item.duration > 0)
-            Debug.Log($"Duration {item.duration}s");
     }
     
     #endregion

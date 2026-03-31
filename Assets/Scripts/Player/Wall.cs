@@ -4,19 +4,29 @@ using TMPro;
 
 public class Wall : MonoBehaviour
 {
-    [Header("Setup Wall")]
-    [SerializeField] private int maxHp = 100;
-    [SerializeField] private int defense = 0;
-    public int currentHp;
 
     [Header("UI Visuals")]
     [SerializeField] private Slider hpSlider;
     [SerializeField] private TextMeshProUGUI hpText;
 
+    private int defense = 0;
+    private float _lastKnowHealth; // The health value before the buff
+    public float currentHp { get; private set; }
+
     void Start()
     {
-        currentHp = maxHp;
+        currentHp = PlayerStats.Instance.Health;
+        defense = PlayerStats.Instance.Defense;
+        _lastKnowHealth = PlayerStats.Instance.Health;
+
+        PlayerStats.Instance.OnStatsChanged += OnStatsBuff;
+        
         UpdateUI();
+    }
+
+    private void OnDestroy()
+    {
+        PlayerStats.Instance.OnStatsChanged -= OnStatsBuff;
     }
 
     public void TakeDamage(int damage)
@@ -35,9 +45,24 @@ public class Wall : MonoBehaviour
 
     private void UpdateUI()
     {
-        if (hpSlider) { hpSlider.maxValue = maxHp; hpSlider.value = currentHp; }
-        if (hpText) hpText.text = $"{currentHp}/{maxHp}";
+        if (hpSlider)
+        {
+            hpSlider.maxValue = PlayerStats.Instance.MaxHealth; 
+            hpSlider.value = currentHp;
+        }
+
+        if (hpText)
+        {
+            hpText.text = $"{currentHp}/{PlayerStats.Instance.MaxHealth}";
+        }
     }
 
-    public float GetHpPercent() => (float)currentHp / maxHp;
+    private void OnStatsBuff()
+    {
+        float newHealth = PlayerStats.Instance.Health;
+        currentHp = Mathf.Min(currentHp + (newHealth - _lastKnowHealth), PlayerStats.Instance.MaxHealth);
+        UpdateUI();
+    }
+
+    public float GetHpPercent() => (float)currentHp / PlayerStats.Instance.MaxHealth;
 }

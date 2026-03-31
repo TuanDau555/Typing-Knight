@@ -1,13 +1,17 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
-public class PlayerStats : Singleton<PlayerStats>
+public class PlayerStats : SingletonPersistent<PlayerStats>
 {
     #region Parameters
 
-    // TODO: Need a player Stats SO 
-    // then pass the data to local stats down here
+    [Header("Player Stats SO")]
+    [SerializeField] private PlayerStatsSO playerStatsSO;
+    
     public float Health { get; private set; }
+    public float MaxHealth { get; private set; }
+    public int Defense { get; private set; }
     public float Damage { get; private set; }
     public float Speed { get; private set; }
 
@@ -15,13 +19,14 @@ public class PlayerStats : Singleton<PlayerStats>
 
     // Events
     public event Action OnStatsChanged;
-    
+
     #endregion
 
     #region Excute
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         InitStat();
     }
 
@@ -32,7 +37,9 @@ public class PlayerStats : Singleton<PlayerStats>
     // TODO: Pass the stat in this func
     private void InitStat()
     {
-        
+        Health = playerStatsSO.health;
+        MaxHealth = playerStatsSO.health;
+        Defense = playerStatsSO.defense;
     }
     
     #endregion
@@ -41,14 +48,24 @@ public class PlayerStats : Singleton<PlayerStats>
 
     public void ApplyItem(ItemSO itemSO)
     {
+        bool changed = false; 
+
         if(itemSO.health > 0)
+        {
             UpdateHealth(itemSO.health);
+            changed = true;
+        }    
 
-        if(itemSO.damage > 0)
-            Damage += itemSO.damage;
+        // if(itemSO.damage > 0)
+        //     Damage += itemSO.damage;
 
-        if(itemSO.speed > 0)
-            Speed += itemSO.speed;
+        // if(itemSO.speed > 0)
+        //     Speed += itemSO.speed;
+
+        if (changed)
+        {
+            OnStatsChanged?.Invoke();
+        }
 
         if(itemSO.duration > 0)
         {
@@ -56,6 +73,15 @@ public class PlayerStats : Singleton<PlayerStats>
         }
     }
 
+    private IEnumerator TemporayBuff(ItemSO itemSO)
+    {
+        OnStatsChanged?.Invoke();
+
+        yield return new WaitForSeconds(itemSO.duration);
+
+        OnStatsChanged?.Invoke();
+    }
+    
     #endregion
 
     #region Update UI
@@ -63,7 +89,6 @@ public class PlayerStats : Singleton<PlayerStats>
     private void UpdateHealth(float amount)
     {
         Health += amount;
-        // TODO: UI here
     }
 
     private void UpdateDamage(float amout)
