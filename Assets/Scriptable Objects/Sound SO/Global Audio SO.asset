@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GlobalAudioSO
   uiSfxList:
   - id: UI CLICK
-    clip: {fileID: 8300000, guid: 15f373591a8e5be4c95a0cca2fcef536, type: 3}
+    clip: {fileID: 8300000, guid: 0e742a6eeac7ebd46a1a38db1b9c924b, type: 3}
     volume: 0.453
     loop: 0
     minPitch: 0.511
     maxPitch: 1
   - id: UI HOVER
-    clip: {fileID: 8300000, guid: 246270b6c7691d3489a355572fccd97b, type: 3}
+    clip: {fileID: 8300000, guid: 68e2e1cbde9ceb143b788a660bd22fb8, type: 3}
     volume: 0.453
     loop: 0
     minPitch: 0.547

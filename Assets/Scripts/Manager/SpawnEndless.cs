@@ -11,7 +11,7 @@ public class SpawnEndless : MonoBehaviour
     [Header("Danh sách các vị trí Spawn")]
     public Transform[] spawnPoints;
 
-    public List<Gamephase> gamePhases = new List<Gamephase>();
+    [SerializeField] private List<Gamephase> gamePhases = new List<Gamephase>();
 
     private int currentMaxEnemy;
     private float currentSpawnInterval;

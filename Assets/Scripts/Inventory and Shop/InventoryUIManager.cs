@@ -55,6 +55,7 @@ public class InventoryUIManager : MonoBehaviour
                 slots[i].SetEmpty();
             }
         }
+        UpdateGold();
     }
 
     private void UpdateGold()

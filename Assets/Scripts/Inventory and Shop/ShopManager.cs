@@ -52,6 +52,8 @@ public class ShopManager : Singleton<ShopManager>
             purchasedItems.Add(shopItemSO.itemSO);
         }
 
+        SaveManager.Instance.SaveGame();
+        
         Debug.Log($"Bought {shopItemSO.itemSO.itemName}");
         
         return true;
