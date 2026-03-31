@@ -5,12 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Scenes/Game.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+<<<<<<< HEAD
     path: Assets/Scenes/Main Menu.unity
     guid: 93c969e5995156c4fa2b468379310416
   - enabled: 1
-    path: Assets/Scenes/Endless Mode/Endless.unity
-    guid: ddd7f4e2033c5da4097651fdad80926c
+    path: Assets/Scenes/Infinite Mode Scene.unity
+    guid: d63293a2c0fbd8842afc4e510fcbf039
+=======
   - enabled: 1
     path: Assets/Scenes/Menu Story Mode Chap1.unity
     guid: 89e250e7396e63f48b46f70a7db8eba1
@@ -20,6 +24,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Story Mode/Chap1-2.unity
     guid: dd0d25077ae7cf94cb680736d6c09de7
+>>>>>>> origin/Core-Gameplay
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
