@@ -208,7 +208,7 @@ SpriteRenderer:
   m_Size: {x: 3.3125, y: 3.1875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &133551300
 GameObject:
@@ -330,7 +330,7 @@ SpriteRenderer:
   m_Size: {x: 3.3125, y: 3.1875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &411785005
 GameObject:
@@ -421,7 +421,7 @@ SpriteRenderer:
   m_Size: {x: 2.6875, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &443692433
 GameObject:
@@ -1007,7 +1007,7 @@ SpriteRenderer:
   m_Size: {x: 3.3125, y: 3.1875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1463458661
 Transform:
@@ -1287,7 +1287,7 @@ MonoBehaviour:
   scoreText: {fileID: 5487048540926726210}
   wrongText: {fileID: 3961506817006023551}
   timeText: {fileID: 1159674237282765473}
-  sceneToLoad: Menu Story Mode Chap 1
+  sceneToLoad: Menu Story Mode Chap1
 --- !u!1 &1652822345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1579,7 +1579,7 @@ SpriteRenderer:
   m_Size: {x: 2.6875, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!114 &309110729637764932 stripped
 MonoBehaviour:
