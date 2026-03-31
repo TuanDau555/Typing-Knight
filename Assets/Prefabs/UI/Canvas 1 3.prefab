@@ -337,9 +337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Play Again
-
-'
+  m_text: Next Level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4105,7 +4103,7 @@ GameObject:
   - component: {fileID: 5312042626244706826}
   - component: {fileID: 6380236835389892270}
   m_Layer: 5
-  m_Name: PlayAgain
+  m_Name: Next Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4848,6 +4846,7 @@ GameObject:
   - component: {fileID: 7697631800702142127}
   - component: {fileID: 4138483527395516189}
   - component: {fileID: 2184193480986985086}
+  - component: {fileID: 4864722143132684999}
   m_Layer: 5
   m_Name: GameWinUI
   m_TagString: Untagged
@@ -4914,6 +4913,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4864722143132684999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8822814611716083496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8bd5c957cda8245a5632cd9fa4db27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelLoading
 --- !u!1 &8883272129538603339
 GameObject:
   m_ObjectHideFlags: 0
