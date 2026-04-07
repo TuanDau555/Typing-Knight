@@ -2,8 +2,9 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -11,7 +12,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -41,3 +42,32 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Map
+    uniqueID: 2185072159
+    locked: 0
+  - name: Enemy
+    uniqueID: 25331933
+    locked: 0
+  - name: Object
+    uniqueID: 1204012239
+    locked: 0
+  - name: arm
+    uniqueID: 1240472825
+    locked: 0
+  - name: body player
+    uniqueID: 431650079
+    locked: 0
+  - name: weapon
+    uniqueID: 1927545167
+    locked: 0
+  - name: arm hold
+    uniqueID: 767636179
+    locked: 0
+  - name: UI
+    uniqueID: 1077793837
+    locked: 0
+  - name: UIResult
+    uniqueID: 2355431563
+    locked: 0
+  m_RenderingLayers:
+  - Default

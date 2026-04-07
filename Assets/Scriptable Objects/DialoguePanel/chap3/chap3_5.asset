@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f100c39ea54d1945a1f135cd657088f, type: 3}
+  m_Name: chap3_5
+  m_EditorClassIdentifier: Assembly-CSharp::LevelStoryData
+  levelName: 
+  introLines:
+  - speaker: Arin
+    text: "\u0110\u1EBFn r\u1ED3i sao , \u0111i\u1EC3m k\u1EBFt th\xFAc\u2026"
+  - speaker: Slime
+    text: "nh\xE2n lo\u1EA1i\u2026 virut\u2026 ti\xEAu di\u1EC7t\u2026"
+  - speaker: Lena
+    text: "!??? Ch\xFAng bi\u1EBFt n\xF3i sao ??"
+  - speaker: Dr.Elias
+    text: "ch\u1EADc c\xF3 v\u1EBB nh\u01B0 ch\xFAng  ta ph\u1EA3i nhanh l\xEAn th\xF4i"
+  - speaker: Arin
+    text: "th\u1EE9 to l\u1EDBn \u0111ang c\u1ED1 chui ra kia l\xE0 g\xEC v\u1EADy\u2026"
+  outroLines:
+  - speaker: Arin
+    text: "Khe n\u1EE9t \u0111\xE3 \u0111\xF3ng... Th\u1EBF gi\u1EDBi h\u1EADu t\u1EADn
+      th\u1EBF t\u1EA1m y\xEAn b\xECnh. Nh\u01B0ng n\u1EBFu l\u0169 slime \u0111\xE3
+      ti\u1EBFn h\xF3a \u0111\u1EBFn m\u1EE9c hi\u1EC3u v\xE0 n\xF3i ti\u1EBFng ng\u01B0\u1EDDi...
+      Li\u1EC7u ch\xFAng c\xF3 quay l\u1EA1i, m\u1EA1nh m\u1EBD h\u01A1n? Shadow...
+      Anh xin l\u1ED7i m\xE0y. Nh\xE2n lo\u1EA1i b\u1EA5t l\u1EF1c \u0111\u1EBFn
+      th\u1EBF sao? Ch\xFAng ta... c\xF3 th\u1EF1c s\u1EF1 th\u1EAFng?"
