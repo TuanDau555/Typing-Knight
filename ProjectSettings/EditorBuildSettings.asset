@@ -68,6 +68,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Story Mode/Chap 3/Chap3-5.unity
     guid: 56d75bfce00de8b47a2b9d736a466fe8
+  - enabled: 1
+    path: Assets/Scenes/Topic Mode/Animal.unity
+    guid: 6e5511666324e324eaa8a0cab9619cd8
+  - enabled: 1
+    path: Assets/Scenes/Menu Theme Mode 1.unity
+    guid: b61d4f9fcfb459a4cbfea6855fe33cd7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
