@@ -16,8 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIPause pausePanel;
 
     [Header("New UI Manager")]
-    [SerializeField] private UIWinResult winResult;
-    [SerializeField] private UIWinResult gameOverResultUI;
+    [SerializeField] private UIWinResult uiResult;
     [SerializeField] private Wall wall;               // Kéo Wall vào đây
 
     [Header("Story")]
@@ -144,7 +143,7 @@ public class GameManager : MonoBehaviour
         bool isCountdown = timer != null && timer.IsCountdownMode;
         float hpPercent = wall != null ? wall.GetHpPercent() : 0;
 
-        winResult.Show(score, wrong, time, hpPercent, true , isCountdown);
+        uiResult.Show(score, wrong, time, hpPercent , isCountdown, true);
     }
     private void ShowOverPanel()
     {
@@ -154,7 +153,7 @@ public class GameManager : MonoBehaviour
         float hpPercent = wall != null ? wall.GetHpPercent() : 0;
 
         // Gửi dữ liệu cho UI Lose: isWinPanel=false, isCountdown=false (thua thì không hiện sao)
-        gameOverResultUI.Show(score, wrong, time, hpPercent, false, false);
+        uiResult.Show(score, wrong, time, hpPercent, false, false);
     }
 
     private void HideAllPanels()
