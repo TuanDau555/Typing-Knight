@@ -19,11 +19,17 @@ public class UIWinResult : MonoBehaviour
     [Tooltip("số điểm sẽ chia con số này để ra tiền")]
     [SerializeField] private float scoreDivisor = 10f;
 
-    [Header("UI References")]
-    [SerializeField] private GameObject mainPanel;
-    [SerializeField] private TextMeshProUGUI titleText;
-    [SerializeField] private TextMeshProUGUI resultSummaryText;
-    //[SerializeField] private TextMeshProUGUI moneyText;
+    [Header("UI Panels")]
+    [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject overPanel;
+
+    [Header("Win UI References")]
+    [SerializeField] private TextMeshProUGUI winTitleText;
+    [SerializeField] private TextMeshProUGUI winSummaryText;
+
+    [Header("Over UI References")]
+    [SerializeField] private TextMeshProUGUI overTitleText;
+    [SerializeField] private TextMeshProUGUI overSummaryText;
 
     [Header("Stars UI")]
     [SerializeField] private GameObject starContainer; // Chứa 3 ngôi sao
@@ -33,10 +39,15 @@ public class UIWinResult : MonoBehaviour
     
     public void Show(int score, int wrong, float elapsedTime, float hpPercent, bool isCountdown, bool isWin)
     {
-        if (mainPanel != null) mainPanel.SetActive(true);
-        if (titleText != null)
+        if (winPanel != null) winPanel.SetActive(isWin);
+        if (overPanel != null) overPanel.SetActive(!isWin);
+
+        // 2. Chọn Text để hiển thị dựa trên trạng thái Win/Loss
+        TextMeshProUGUI activeTitle = isWin ? winTitleText : overTitleText;
+        TextMeshProUGUI activeSummary = isWin ? winSummaryText : overSummaryText;
+        if (activeTitle != null)
         {
-            titleText.text = isWin ? "GAME WIN" : "GAME OVER";
+            activeTitle.text = isWin ? "GAME WIN" : "GAME OVER";
         }
         // --- LOGIC QUY ĐỔI TIỀN ---
         // Đảm bảo không chia cho 0 để tránh lỗi
@@ -45,11 +56,15 @@ public class UIWinResult : MonoBehaviour
 
         // 1. Hiển thị thông tin chung
         string timeStr = $"{(int)elapsedTime / 60:00}:{(int)elapsedTime % 60:00}";
-        resultSummaryText.text = $"Score: {score}\n" +
+        string summary = $"Score: {score}\n" +
                                  $"Wrong: {wrong}\n" +
                                  $"Time: {timeStr}\n" +
                                  $"<color=#FFD700>Money: +{earnedMoney}$</color>"; // Hiện tiền màu vàng
 
+        if (activeSummary != null)
+        {
+            activeSummary.text = summary;
+        }
         // 2. Xử lý đánh giá Sao
         if (starContainer != null)
         {

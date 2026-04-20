@@ -7212,6 +7212,7 @@ GameObject:
   - component: {fileID: 1866929750}
   - component: {fileID: 1866929749}
   - component: {fileID: 1866929752}
+  - component: {fileID: 1866929753}
   m_Layer: 5
   m_Name: Theme mode Btn
   m_TagString: Untagged
@@ -7282,7 +7283,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1866929750}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1866929753}
+        m_TargetAssemblyTypeName: LevelLoading, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Menu Theme Mode 1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1866929750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7333,6 +7346,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc98a50a3eb4b3c45baa4911fedfe0c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIAudioHook
+--- !u!114 &1866929753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866929747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8bd5c957cda8245a5632cd9fa4db27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelLoading
 --- !u!1 &1887281576
 GameObject:
   m_ObjectHideFlags: 0
@@ -7665,6 +7690,7 @@ GameObject:
   - component: {fileID: 1975099050}
   - component: {fileID: 1975099049}
   - component: {fileID: 1975099052}
+  - component: {fileID: 1975099053}
   m_Layer: 5
   m_Name: Story mode Btn
   m_TagString: Untagged
@@ -7735,7 +7761,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1975099050}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1975099053}
+        m_TargetAssemblyTypeName: LevelLoading, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Menu Story Mode Chap1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1975099050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7786,6 +7824,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc98a50a3eb4b3c45baa4911fedfe0c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIAudioHook
+--- !u!114 &1975099053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975099047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8bd5c957cda8245a5632cd9fa4db27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelLoading
 --- !u!1 &1978690418
 GameObject:
   m_ObjectHideFlags: 0
